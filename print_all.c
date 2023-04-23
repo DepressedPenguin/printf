@@ -45,7 +45,7 @@ return (-1);
 }
 else
 {
-if (format[i] == NULL)
+if (format[i] == '\0')
 {
 return (0);
 }
