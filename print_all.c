@@ -4,13 +4,10 @@
 #include <unistd.h>
 /**
  * _printf - fonctiopn to printf
- * _print_all - print all fcs
- *
+ *_print_all - print all fcs
  * @format : the format
- *
  *@args : parametr
- @Return: Printed chars.
- *return : return to 0
+ *Return: Printed chars.
  */
 
 int _print_all(const char *format, va_list args)
