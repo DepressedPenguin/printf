@@ -4,8 +4,13 @@
 #include <unistd.h>
 /**
  * _printf - fonctiopn to printf
+ * _print_all - print all fcs
+ *
  * @format : the format
- * return : return to 0
+ *
+ *@args : parametr
+ @Return: Printed chars.
+ *return : return to 0
  */
 
 int _print_all(const char *format, va_list args)
@@ -41,21 +46,20 @@ defult:
 				return  (-1);
 		}
 	}
-	else 
+	else
 {
-		if (format[i] == NULL )
-		{
+		if (format[i] == NULL)
+{
 			return (0);
-		}
-		while(format[i] ! = 0)
-		{
-			printLen += my_write(format([i]);
-
-					i++;
-			}
-			return(irintLen);
-			}
-			}
-			va_e,d(args);
-			return(printlen);
-			}			
+}
+while (format[i] != 0)
+{
+printLen += my_write(format([i]);
+i++;
+}
+return (printLen);
+}
+}
+va_end(args);
+return (printlen);
+}
