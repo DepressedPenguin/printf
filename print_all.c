@@ -16,33 +16,31 @@ int i, prinLen = 0;
 char *str;
 for (i = 0; format[i] != '\0'; i++)
 {
-	if (format[i] == '%')
-	{
-		i++;
-		switch (format[i])
-		{
-			case 'c':
-				printLen = my_write(va_arg(args, int));
-				break;
-			case 's':
-				str = (char *) va_arg(args, char *);
-				if (str == NULL)
-				{
-					return (0);
-				}
-				while (*str != 0)
-				{
-					printLen += my_write(*str);
-					str++;
-				}
-				break;
-			case '%':
-				printLen = my_write(format[i]);
-				break;
+if (format[i] == '%')
+{
+i++;
+switch (format[i])
+{
+case 'c':
+printLen = my_write(va_arg(args, int));
+break;
+case 's':
+str = (char *) va_arg(args, char *);
+if (str == NULL)
+return (0);
+while (*str != 0)
+{
+printLen += my_write(*str);
+str++;
+}
+break;
+case '%':
+printLen = my_write(format[i]);
+break;
 defult:
-				return  (-1);
-		}
-	}
+return  (-1);
+}
+}
 	else
 {
 		if (format[i] == NULL)
