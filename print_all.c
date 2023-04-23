@@ -12,7 +12,7 @@
 
 int _print_all(const char *format, va_list args)
 {
-int i, prinLen = 0;
+int i, printLen = 0;
 char *str;
 for (i = 0; format[i] != '\0'; i++)
 {
@@ -27,7 +27,9 @@ break;
 case 's':
 str = (char *) va_arg(args, char *);
 if (str == NULL)
+{
 return (0);
+}
 while (*str != 0)
 {
 printLen += my_write(*str);
@@ -37,24 +39,24 @@ break;
 case '%':
 printLen = my_write(format[i]);
 break;
-defult:
-return  (-1);
+default:
+return (-1);
 }
 }
-	else
+else
 {
-		if (format[i] == NULL)
+if (format[i] == NULL)
 {
-			return (0);
+return (0);
 }
 while (format[i] != 0)
 {
-printLen += my_write(format([i]);
+printLen += my_write(format[i]);
 i++;
 }
 return (printLen);
 }
 }
 va_end(args);
-return (prinlen);
+return (printLen);
 }
