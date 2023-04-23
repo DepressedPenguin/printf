@@ -4,40 +4,34 @@
 #include <unistd.h>
 /**
  * _printf - fonctiopn to printf
- *_print_all - print all fcs
+ *_print_all- print all fcs
  * @format : the format
  *@args : parametr
  *Return: Printed chars.
  */
-
 int _print_all(const char *format, va_list args)
 {
-int i, printLen = 0;
-char *str;
-for (i = 0; format[i] != '\0'; i++)
+int printLen = 0;
+for (; *format; ++format)
 {
-if (format[i] == '%')
+if (*format == '%')
 {
-i++;
-switch (format[i])
+switch (*++format)
 {
 case 'c':
-printLen = my_write(va_arg(args, int));
+	printLen += my_write(va_arg(args, int));
 break;
 case 's':
-str = (char *) va_arg(args, char *);
-if (str == NULL)
 {
-return (0);
-}
-while (*str != 0)
-{
-printLen += my_write(*str);
-str++;
+const char *str = va_arg(args, const char *);
+if (!str)
+return (-1);
+while (*str)
+	printLen += my_write(*str++);
 }
 break;
 case '%':
-printLen = my_write(format[i]);
+printLen += my_write('%');
 break;
 default:
 return (-1);
@@ -45,16 +39,7 @@ return (-1);
 }
 else
 {
-if (format[i] == '\0')
-{
-return (0);
-}
-while (format[i] != 0)
-{
-printLen += my_write(format[i]);
-i++;
-}
-return (printLen);
+printLen += my_write(*format);
 }
 }
 va_end(args);
