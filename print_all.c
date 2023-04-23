@@ -11,27 +11,24 @@
  */
 int _print_all(const char *format, va_list args)
 {
-int printLen = 0;
-for (; *format; ++format)
+int i, printLen = 0;
+char *str;
+for (i = 0; format[i] != '\0'; i++)
 {
-if (*format == '%')
+if (format[i] == '%')
 {
-switch (*++format)
-{
-case 'c':
-	printLen += my_write(va_arg(args, int));
+i++;
+switch (format[i])
+		{
+	case 'c':
+printLen = my_write(va_arg(args, int));
 break;
 case 's':
-{
-const char *str = va_arg(args, const char *);
-if (!str)
-return (-1);
-while (*str)
-	printLen += my_write(*str++);
-}
+str = (char *) va_arg(args, char *);
+			write_string(str);
 break;
 case '%':
-printLen += my_write('%');
+printLen = my_write(format[i]);
 break;
 default:
 return (-1);
@@ -39,9 +36,11 @@ return (-1);
 }
 else
 {
-printLen += my_write(*format);
+write_string(format);
+return (printLen);
 }
 }
 va_end(args);
 return (printLen);
 }
+
