@@ -2,6 +2,7 @@
 #include <stdarg.h>
 #include <stddef.h>
 #include <unistd.h>
+#include "main.h"
 /**
  *my_write - fonction to push.
  *write_string -  fonction for strings :
@@ -15,7 +16,7 @@ return (write(1, &c, 1));
 }
 int write_string(char *str)
 {
-int len = 0, i = 0;
+int len = 0; 
 if (str == NULL)
 {
 return (0);

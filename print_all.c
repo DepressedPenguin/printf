@@ -37,7 +37,7 @@ return (-1);
 }
 else
 {
-write_string(format);
+printLen = write_string(format);
 return (printLen);
 }
 }
