@@ -9,12 +9,11 @@
  *@c: char
  *Return: Number of chars printed.
  */
-
 int my_write(char c)
 {
 return (write(1, &c, 1));
 }
-int write_string(char *str)
+int write_string(const char *str)
 {
 int len = 0; 
 if (str == NULL)
