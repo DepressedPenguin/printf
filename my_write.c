@@ -1,9 +1,25 @@
 /**
- *my_write - fonction to push
+ *my_write - fonction to push.
+ *write_string -  fonction for strings :
  *@c: char
  *Return: Number of chars printed.
  */
+
 int my_write(char c)
 {
 return (write(1, &c, 1));
+}
+int write_string(char *str)
+{
+int len = 0, i = 0;
+if (str == NULL)
+{
+return (0);
+}
+while (*str)
+{
+len += my_write(*str);
+str++;
+}
+		return (len);
 }
