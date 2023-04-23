@@ -56,5 +56,5 @@ return (printLen);
 }
 }
 va_end(args);
-return (printlen);
+return (prinlen);
 }
