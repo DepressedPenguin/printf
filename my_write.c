@@ -1,3 +1,7 @@
+#include <stdio.h>
+#include <stdarg.h>
+#include <stddef.h>
+#include <unistd.h>
 /**
  *my_write - fonction to push.
  *write_string -  fonction for strings :

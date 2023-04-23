@@ -2,6 +2,7 @@
 #include <stdarg.h>
 #include <stddef.h>
 #include <unistd.h>
+#include "main.h"
 /**
  * _print_all - fonctiopn to print all
  * _printf - fonctiopn to printf
