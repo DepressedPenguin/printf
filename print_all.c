@@ -9,54 +9,31 @@
  *@args : parametr
  *Return: Printed chars.
  */
+int _print_all(const char *format, va_list args) {
+    int printLen = 0;
+    for (; *format; ++format) {
+        if (*format == '%') {
+            switch (*++format) {
+                case 'c':
+                    printLen += my_write(va_arg(args, int));
+                    break;
+                case 's': {
+                    const char *str = va_arg(args, const char *);
+                    if (!str) return -1;
+                    while (*str) printLen += my_write(*str++);
+                    }
+                    break;
+                case '%':
+                    printLen += my_write('%');
+                    break;
+                default:
+                    return -1;
+            }
+        } else {
+            printLen += my_write(*format);
+        }
+    }
+    va_end(args);
+    return printLen;
+}
 
-int _print_all(const char *format, va_list args)
-{
-int i, printLen = 0;
-char *str;
-for (i = 0; format[i] != '\0'; i++)
-{
-if (format[i] == '%')
-{
-i++;
-switch (format[i])
-{
-case 'c':
-printLen = my_write(va_arg(args, int));
-break;
-case 's':
-str = (char *) va_arg(args, char *);
-if (str == NULL)
-{
-return (0);
-}
-while (*str != 0)
-{
-printLen += my_write(*str);
-str++;
-}
-break;
-case '%':
-printLen = my_write(format[i]);
-break;
-default:
-return (-1);
-}
-}
-else
-{
-if (format[i] == '\0')
-{
-return (0);
-}
-while (format[i] != 0)
-{
-printLen += my_write(format[i]);
-i++;
-}
-return (printLen);
-}
-}
-va_end(args);
-return (printLen);
-}
