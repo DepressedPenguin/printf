@@ -3,8 +3,8 @@
 #include <stddef.h>
 #include <unistd.h>
 /**
+ * _print_all - fonctiopn to print all
  * _printf - fonctiopn to printf
- *_print_all- print all fcs
  * @format : the format
  *@args : parametr
  *Return: Printed chars.
