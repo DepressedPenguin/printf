@@ -1,13 +1,62 @@
-int _printf(const char *format, ...)
+#include <stdio.h>
+#include <stdarg.h>
+#include <stddef.h>
+#include <unistd.h>
+/**
+ * _printf - fonctiopn to printf 
+ * @format : the format
+ * return : return to 0
+ * */
+int _print_all(const char *format, va_list args)int _print_all(const char *format, va_list args)
 {
-va_list_argsl;
-int_lenP;
-va_start(argsl, format);
-if (!format)
-	return (-1);
-va_start(argsl, format);
-lenp= _print_format(format, argsl);
-va_end(args1);
-return (lenP);
-}
+int i, prinLen = 0;
+char *str;
+for (i = 0; format[i] != '\0'; i++)
+{
+	if (format[i] == '%')
+	{
+		i++;
+		switch (format[i] )
+		{
+			case 'c' :
+				printLen = my_write(va_arg(args, int));
+				break;
+			case 's':
+				str = (char * ) va_arg(args, char * );
+				if (str == NULL )
+				{
+					return(0);
+				}
+				while(*str ! = 0)
+				{
+					printLen += my_write(*str);
+					str++;
+				}
+				break;
+			case '%':
+				printLen = my_write(format[i]);
+				break;
+defult :
+				return(-1);
+				break;
+		}
+	}
+	else 
+	{
+		if (format[i] == NULL )
+		{
+			return (0);
+		}
+		while(format[i] ! = 0)
+		{
+			printLen += my_write(format([i]);
 
+					i++;
+			}
+			return(irintLen);
+			}
+			}
+			va_e,d(args);
+			return(printlen);
+			}
+			
