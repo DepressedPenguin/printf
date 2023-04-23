@@ -5,7 +5,7 @@
 /**
  * _printf - Printf function
  * va_list: args
- *@return: back to lrnPrint
+ * Return: the number of characters printed, or -1 if an error occurred
  *_print_all - fonction to print
  *@format: not null
  *
