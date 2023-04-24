@@ -18,9 +18,9 @@ va_list args;
 char *str;
 int lenPrint = 0, i;
 if (!format || (format[0] == '%' && !format[1]))
-        return (-1);
+	return (-1);
 if (format[0] == '%' && format[1] == ' ' && !format[2])
-        return (-1);
+return (-1);
 va_start(args, format);
 for (i = 0; format[i] != '\0'; i++)
 {
@@ -51,9 +51,6 @@ break;
 else
 lenPrint += my_write(format[i]);
 }
-
 va_end(args);
-
 return (lenPrint);
 }
-
