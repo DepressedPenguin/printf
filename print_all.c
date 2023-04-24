@@ -33,13 +33,11 @@ printLen = my_write(format[i]);
 break;
 }
 }
- else
-    {
-      printLen += my_write(format[i]);
-        
-    }
+else
+{
+printLen += my_write(format[i]);
 }
-
+}
 return (printLen);
 }
 
