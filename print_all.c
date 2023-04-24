@@ -31,14 +31,12 @@ break;
 case '%':
 printLen += my_write(format[i]);
 break;
-default:
+}
+
+
 }
 }
-else
-{
-printLen += my_write(format[i]);
-}
-}
+
 return (printLen);
 }
 
