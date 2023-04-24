@@ -31,8 +31,6 @@ break;
 case '%':
 printLen += my_write(format[i]);
 break;
-default:
-return (-1);
 }
 }
 else
