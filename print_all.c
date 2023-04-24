@@ -20,8 +20,8 @@ if (format[i] == '%')
 {
 i++;
 switch (format[i])
-                {
-        case 'c':
+{
+case 'c':
 printLen += my_write(va_arg(args, int));
 break;
 case 's':
