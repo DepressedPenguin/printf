@@ -21,4 +21,5 @@ return (-1);
 va_start(args, format);
 lenPrint = _print_all(format, args);
 va_end(args);
-return (lenPrint);}
+return (lenPrint);
+}
