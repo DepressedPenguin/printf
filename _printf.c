@@ -18,7 +18,7 @@ va_list args;
 char *str;
 int lenPrint = 0, i;
 if (!format || (format[0] == '%' && !format[1]))
-        return (-1);
+return (-1);
 if (format[0] == '%' && format[1] == ' ' && !format[2])
 return (-1);
 va_start(args, format);
