@@ -33,7 +33,7 @@ int _print_all(const char *format, va_list args)
 					lenPrint += my_write('%');
 					break;
 				default:
-					return (-1);
+					break;
 			}
 		}
 		else
