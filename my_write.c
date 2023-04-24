@@ -22,7 +22,7 @@ int write_string(const char *str)
 int len = 0;
 if (str == NULL)
 {
-return (0);
+return (-1);
 }
 while (*str)
 {

@@ -22,14 +22,14 @@ i++;
 switch (format[i])
 		{
 	case 'c':
-printLen = my_write(va_arg(args, int));
+printLen += my_write(va_arg(args, int));
 break;
 case 's':
 str = (char *) va_arg(args, char *);
-printLen = write_string(str);
+printLen += write_string(str);
 break;
 case '%':
-printLen = my_write(format[i]);
+printLen += my_write(format[i]);
 break;
 default:
 return (-1);
