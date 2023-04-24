@@ -10,7 +10,7 @@
  *@args : parametr
  *Return: Printed chars.
  */
-int _print_all(const char *format, va_list args)
+/*int _print_all(const char *format, va_list args)
 {
 	int i, lenPrint = 0;
 	char *str;
@@ -43,4 +43,4 @@ return (-1);
 	}
 va_end(args);
 	return (lenPrint);
-}
+}//
