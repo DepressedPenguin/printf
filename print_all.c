@@ -32,12 +32,13 @@ int _print_all(const char *format, va_list args)
 				case '%':
 					lenPrint += my_write('%');
 					break;
+					return(-1);
 		
 			}
 		}
 		else
 			lenPrint += my_write(format[i]);
 	}
-
+va_end(args);
 	return (lenPrint);
 }
