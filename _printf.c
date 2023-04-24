@@ -18,7 +18,7 @@ va_list args;
 char *str;
 int lenPrint = 0, i;
 if (!format || (format[0] == '%' && !format[1]))
-	return (-1);
+        return (-1);
 if (format[0] == '%' && format[1] == ' ' && !format[2])
 return (-1);
 va_start(args, format);
@@ -30,7 +30,7 @@ i++;
 switch (format[i])
 {
 case 'c':
-	lenPrint += my_write(va_arg(args, int));
+lenPrint += my_write(va_arg(args, int));
 break;
 case 's':
 str = va_arg(args, char *);
@@ -42,11 +42,16 @@ break;
 case '%':
 lenPrint += my_write('%');
 break;
+case 'd':
+case 'i':
+lenPrint += print_integer(va_arg(args, int));
+break;
 default:
 lenPrint += my_write('%');
 lenPrint += my_write(format[i]);
 break;
 }
+
 }
 else
 lenPrint += my_write(format[i]);
