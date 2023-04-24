@@ -31,4 +31,3 @@ str++;
 }
 return (len);
 }
-
