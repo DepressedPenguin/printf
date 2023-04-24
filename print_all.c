@@ -40,5 +40,6 @@ else
 printLen += my_write(format[i]);
 }
 }
+va_end(args);
 return (printLen);
 }
