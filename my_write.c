@@ -4,8 +4,7 @@
 #include <unistd.h>
 #include "main.h"
 /**
- *my_write - fonction to push.
- *write_string -  fonction for strings :
+ * my_write - fonction to push.
  *@c: char
  *Return: Number of chars printed.
  */
@@ -13,9 +12,14 @@ int my_write(char c)
 {
 return (write(1, &c, 1));
 }
+/**
+ * write_string - hgzgh  ghgd dff
+ *@str : strg intg
+ *Return: back to zero
+ */
 int write_string(const char *str)
 {
-int len = 0; 
+int len = 0;
 if (str == NULL)
 {
 return (0);
