@@ -4,30 +4,39 @@
 #include <unistd.h>
 #include "main.h"
 /**
- * my_write - fonction to push.
- *@c: char
- *Return: Number of chars printed.
+ * my_write - writes a character to standard output
+ * @c: the character to write
+ *
+ * Return: the number of bytes written (1) on success, or -1 on failure
  */
 int my_write(char c)
 {
-return (write(1, &c, 1));
+    if (write(1, &c, 1) != 1) {
+        return -1;
+    }
+    return 1;
 }
+
 /**
- * write_string - hgzgh  ghgd dff
- *@str : strg intg
- *Return: back to zero
+ * write_string - writes a null-terminated string to standard output
+ * @str: the string to write
+ *
+ * Return: the number of bytes written on success, or -1 on failure
  */
 int write_string(const char *str)
 {
-int len = 0;
-if (str == NULL)
-{
-return (-1);
-}
-while (*str)
-{
-len += my_write(*str);
-str++;
-}
-		return (len);
+    if (str == NULL) {
+        return -1;
+    }
+
+    size_t len = 0;
+    while (*str != '\0') {
+        if (my_write(*str) == -1) {
+            return -1;
+        }
+        str++;
+        len++;
+    }
+
+    return len;
 }
