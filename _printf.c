@@ -44,7 +44,7 @@ int _printf(const char *format, ...)
                     lenPrint += my_write('%');
                     break;
                 default:
-                    lenPrint += my_write('%');
+                    
                     lenPrint += my_write(format[i]);
                     break;
             }
