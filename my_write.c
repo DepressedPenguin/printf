@@ -29,6 +29,6 @@ while (*str)
 len += my_write(*str);
 str++;
 }
-                return (len);
+return (len);
 }
 
