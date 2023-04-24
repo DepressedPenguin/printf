@@ -26,7 +26,7 @@ printLen = my_write(va_arg(args, int));
 break;
 case 's':
 str = (char *) va_arg(args, char *);
-			write_string(str);
+printLen = write_string(str);
 break;
 case '%':
 printLen = my_write(format[i]);
