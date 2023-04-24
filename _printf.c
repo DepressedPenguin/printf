@@ -4,13 +4,13 @@
 #include <unistd.h>
 #include <string.h>
 #include "main.h"
+
 /**
  * _printf - Printf function
- * va_list: args
- * Return: the number of characters printed, or -1 if an error occurred
- *_print_all - fonction to print
- *@format: not null
+ * @format: format string
+ * @...: variable arguments list
  *
+ * Return: the number of characters printed, or -1 if an error occurred
  */
 int _printf(const char *format, ...)
 {
@@ -22,7 +22,6 @@ int _printf(const char *format, ...)
         return (-1);
 
     va_start(args, format);
-
 
     for (i = 0; format[i] != '\0'; i++)
     {
@@ -36,19 +35,26 @@ int _printf(const char *format, ...)
                     break;
                 case 's':
                     str = va_arg(args, char *);
-                    lenPrint += write_string(str);
+                    if (str == NULL)
+                        lenPrint += write_string("(null)");
+                    else
+                        lenPrint += write_string(str);
                     break;
                 case '%':
                     lenPrint += my_write('%');
                     break;
                 default:
+                    lenPrint += my_write('%');
                     lenPrint += my_write(format[i]);
                     break;
             }
         }
         else
             lenPrint += my_write(format[i]);
-        }
+    }
+
     va_end(args);
-  return  (lenPrint);
+
+    return (lenPrint);
 }
+
