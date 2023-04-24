@@ -15,10 +15,6 @@
 int _printf(const char *format, ...)
 {
 va_list args;
-int count = 0;
-const charp = format;
-if (format == NULL)
-return (-1);
 int lenPrint;
 
 if (format == NULL)
