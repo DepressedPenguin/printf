@@ -20,17 +20,17 @@ if (format[i] == '%')
 {
 i++;
 switch (format[i])
-		{
-	case 'c':
+                {
+        case 'c':
 printLen += my_write(va_arg(args, int));
 break;
-     case 's':
-                    str = va_arg(args, char *);
-                    printLen += write_string(str);
-                    break;
-                case '%':
-                    printLen += my_write('%');
-                    break;
+case 's':
+str = (char *) va_arg(args, char *);
+printLen += write_string(str);
+break;
+case '%':
+printLen += my_write(format[i]);
+break;
 default:
 return (-1);
 }
@@ -40,6 +40,5 @@ else
 printLen += my_write(format[i]);
 }
 }
-va_end(args);
 return (printLen);
 }
