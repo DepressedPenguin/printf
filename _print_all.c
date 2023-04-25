@@ -4,6 +4,7 @@
 #include <unistd.h>
 #include <string.h>
 #include "main.h"
+
 /**
  * _print_all - Printf function
  * @format: format string
@@ -17,6 +18,8 @@ int _print_all(const char *format, va_list args)
 int lenPrint = 0;
 int i = 0;
 char *str;
+int number;
+char buffer[12];
 for (i = 0; format[i] != '\0'; i++)
 {
 if (format[i] == '%')
@@ -26,6 +29,10 @@ switch (format[i])
 {
 case 'c':
 lenPrint += my_write(va_arg(args, int));
+break;
+number = va_arg(args, int);
+sprintf(buffer, "%d", number );
+lenPrint+= write_string(buffer);
 break;
 case 's':
 str = va_arg(args, char *);
