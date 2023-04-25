@@ -9,6 +9,6 @@ int _printf(const char *format, ...);
 int my_write(char c);
 int mywrite(char c);
 int write_string(const char *str);
-int print_integer(int n);
+int print_integer(va_list args);
 
 #endif

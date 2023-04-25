@@ -11,17 +11,30 @@
  *
  * Return: The number of characters printed
  */
-int print_integer(int n)
+
+int print_integer(va_list args)
 {
-int len = 0;
+int n;
+int div;
+int len;
+unsigned int num;
+n = va_arg(args, int);
+div = 1;
+len = 0;
 if (n < 0)
 {
 len += my_write('-');
-n = -n;
+num = n * -1;
 }
-if (n / 10)
-len += print_integer(n / 10);
-len += my_write((n % 10) + '0');
+else
+num = n;
+for (; num / div > 9; )
+div *= 10;
+for (; div != 0; )
+{
+len += my_write('0' + num / div);
+num %= div;
+div /= 10;
+}
 return (len);
 }
-
