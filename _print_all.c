@@ -1,10 +1,4 @@
-#include <stdio.h>
-#include <stdarg.h>
-#include <stddef.h>
-#include <unistd.h>
-#include <string.h>
 #include "main.h"
-
 /**
  * _print_all - Printf function
  * @format: format string
@@ -12,7 +6,6 @@
  *
  * Return: the number of characters printed, or -1 if an error occurred
  */
-
 int _print_all(const char *format, va_list args)
 {
 int lenPrint = 0;
@@ -31,8 +24,8 @@ case 'c':
 lenPrint += my_write(va_arg(args, int));
 break;
 number = va_arg(args, int);
-sprintf(buffer, "%d", number );
-lenPrint+= write_string(buffer);
+sprintf(buffer, "%d", number);
+lenPrint += write_string(buffer);
 break;
 case 's':
 str = va_arg(args, char *);
