@@ -13,14 +13,15 @@
  */
 int print_integer(int n)
 {
-    int len = 0;
-    if (n < 0) {
-        len += my_write('-');
-        n = -n;
-    }
-    if (n / 10)
-        len += print_integer(n / 10);
-    len += my_write((n % 10) + '0');
-    return len;
+int len = 0;
+if (n < 0)
+{
+len += my_write('-');
+n = -n;
+}
+if (n / 10)
+len += print_integer(n / 10);
+len += my_write((n % 10) + '0');
+return (len);
 }
 
