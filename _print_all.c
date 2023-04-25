@@ -3,15 +3,12 @@
  * _print_all - Printf function
  * @format: format string
  * @args: variable arguments list
- *
  * Return: the number of characters printed, or -1 if an error occurred
  */
 int _print_all(const char *format, va_list args)
 {
-int lenPrint = 0;
-int i = 0;
+int lenPrint = 0, i = 0, number;
 char *str;
-int number;
 char buffer[12];
 for (i = 0; format[i] != '\0'; i++)
 {
