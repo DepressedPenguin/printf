@@ -8,8 +8,7 @@
 int _print_all(const char *format, va_list args)
 {
 int lenPrint = 0, i = 0, number;
-char *str;
-char buffer[12];
+char *str, buffer[12];
 for (i = 0; format[i] != '\0'; i++)
 {
 if (format[i] == '%')
