@@ -46,7 +46,7 @@ lenPrint += my_write('%');
 break;
 case 'd':
 case 'i':
-lenPrint += print_integer(va_arg(args, va_list));
+lenPrint += print_integer(args);
 break;
 default:
 lenPrint += my_write('%');
