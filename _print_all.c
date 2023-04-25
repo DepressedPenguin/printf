@@ -28,7 +28,7 @@ case 'c':
 lenPrint += my_write(va_arg(args, int));
 break;
 case 's':
-str = va_arg(args, char *);
+char *str = va_arg(args, char *);
 if (str == NULL)
 lenPrint += write_string("(null)");
 else
