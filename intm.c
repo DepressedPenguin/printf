@@ -1,58 +1,27 @@
 #include <stdio.h>
-#include <stdlib.h>
 #include <stdarg.h>
-#include <string.h>
+#include <stddef.h>
 #include <unistd.h>
+#include <string.h>
 #include "main.h"
 
-#define BUFFER_SIZE 50
+/**
+ * print_integer - Prints a signed integer to standard output
+ * @n: The integer to print
+ *
+ * Return: The number of characters printed
+ */
+int print_integer(int n)
+{
+int len = 0;
+if (n < 0)
+{
+len += my_write('-');
+n = -n;
+}
+if (n / 10)
+len += print_integer(n / 10);
+len += my_write((n % 10) + '0');
+return (len);
+}
 
-int print_integer_to_buffer(va_list args, char result_buffer[], int flags, int width, int precision, int size)
-{
-int position = BUFFER_SIZE - 2;
-int is_negative = 0;
-unsigned int num = 0;
-unsigned int num_value = 0;
-
-if (size == sizeof(char))
-{
-num_value = (char)va_arg(args, int);
-}
-else if (size == sizeof(short))
-{
-num_value = (short)va_arg(args, int);
-}
-else if (size == sizeof(int))
-{
-num_value = va_arg(args, int);
-}
-else if (size == sizeof(long))
-{
-num_value = va_arg(args, long);
-}
-if (num == 0)
-{
-result_buffer[position--] = '0';
-} 
-else 
-{    
-if (is_negative)
-{
-is_negative = 1;
-num = -num;
-}
-for (num = num_value; num > 0; num /= 10)
-{
-result_buffer[position--] = (num % 10) + '0';
-}
-if (is_negative)
-{
-result_buffer[position--] = '-';
-}
-}
-result_buffer[BUFFER_SIZE - 1] = '\0';
-int digits_written;
-digits_written = BUFFER_SIZE - position - 2;
-int result = write_number(result_buffer + position + 1, flags, width, precision, digits_written);
-return result;
-}
