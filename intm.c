@@ -7,7 +7,7 @@
 
 /**
  * print_integer - Prints a signed integer to standard output
- * @n: The integer to print
+ * @args: The integer to print
  *
  * Return: The number of characters printed
  */
