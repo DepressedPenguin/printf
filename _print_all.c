@@ -7,8 +7,8 @@
  */
 int _print_all(const char *format, va_list args)
 {
-int lenPrint = 0, i = 0, number;
-char *str, buffer[12];
+int lenPrint = 0, i = 0;
+char *str;
 for (i = 0; format[i] != '\0'; i++)
 {
 if (format[i] == '%')
@@ -18,10 +18,6 @@ switch (format[i])
 {
 case 'c':
 lenPrint += my_write(va_arg(args, int));
-break;
-number = va_arg(args, int);
-sprintf(buffer, "%d", number);
-lenPrint += write_string(buffer);
 break;
 case 's':
 str = va_arg(args, char *);
@@ -36,6 +32,9 @@ break;
 case 'd':
 case 'i':
 lenPrint += print_integer(args);
+break;
+case 'b':
+lenPrint += print_b(args);
 break;
 default:
 lenPrint += my_write('%');
