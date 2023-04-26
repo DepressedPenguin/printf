@@ -10,5 +10,5 @@ int my_write(char c);
 int mywrite(char c);
 int write_string(const char *str);
 int print_integer(va_list args);
-
+int print_b(va_list args);
 #endif
